@@ -21,3 +21,9 @@ yarn run dev
 ```
 
 > The APP will run at http://localhost:3000
+
+## Deployed
+
+If you would like to see the app in action in the Vercel production environment, you can visit
+
+> https://exchange-challenge.vercel.app/
