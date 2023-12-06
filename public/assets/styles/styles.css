@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.exchangeContainer {
+  width: 75%;
+}
+
+.toggleExchange {
+  width: 65px;
+  height: 65px;
+  cursor: pointer;
+  margin-top: 44px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .exchangeContainer {
+    width: 95%;
+  }
+
+  .toggleExchange {
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    margin: 15px 0px;
+  }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1200px) {
+  .exchangeContainer {
+    width: 95%;
+  }
+
+  .toggleExchange {
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    margin-top: 44px;
+  }
+}
