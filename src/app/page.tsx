@@ -1,7 +1,7 @@
 "use client";
 import React, { ChangeEvent } from "react";
 import { useEffect, useState } from "react";
-import { Currencies } from "@/services/api/Currencies";
+import { Currencies, ICurrency } from "@/services/api/Currencies";
 import { ExchangeRate } from "@/services/api/ExchangeRate";
 import CurrencySelect from "@/components/CurrencySelect";
 import Button from "@/components/Button";
@@ -14,7 +14,7 @@ export default function Home() {
   const [to, setTo] = useState<string>("EUR");
   const [baseRate, setBaseRate] = useState<number | undefined>();
   const [rate, setRate] = useState<number | undefined>();
-  const [currencies, setCurrencies] = useState<any>();
+  const [currencies, setCurrencies] = useState<Record<string, ICurrency>>();
   const [buttonClicked, setButtonClicked] = useState<boolean>(false);
   const [isFetching, setIsFetching] = useState<boolean>(false);
 
@@ -142,7 +142,7 @@ export default function Home() {
         </div>
         <div className="row mt-3 mt-md-5">
           <div className="col-12 col-md-8">
-            {baseRate && rate && (
+            {currencies && baseRate && rate && (
               <div className="d-flex flex-column ">
                 <p className="fs-4 fw-bold opacity-50">
                   {amount} {currencies[from].name} =

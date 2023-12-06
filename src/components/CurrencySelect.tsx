@@ -1,3 +1,4 @@
+import { ICurrency } from "@/services/api/Currencies";
 import React from "react";
 import { ChangeEvent } from "react";
 import Skeleton from "react-loading-skeleton";
@@ -5,7 +6,7 @@ import Skeleton from "react-loading-skeleton";
 type THandleChange = ChangeEvent<HTMLInputElement | HTMLSelectElement>;
 
 interface ISelectProps {
-  currencies: any;
+  currencies: Record<string, ICurrency> | undefined;
   id: string;
   value: string;
   handlerOnChange: (e: THandleChange) => void;

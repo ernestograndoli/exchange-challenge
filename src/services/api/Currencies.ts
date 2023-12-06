@@ -1,7 +1,7 @@
 import { FetchService } from "@/services/FetchService";
 import { IResponse } from "@/services/IResponse";
 
-interface ICurrency {
+export interface ICurrency {
   symbol: string;
   name: string;
   symbol_native: string;
