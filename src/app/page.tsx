@@ -13,7 +13,7 @@ export default function Home() {
   const [amount, setAmount] = useState<number>(1);
   const [from, setFrom] = useState<string>("USD");
   const [to, setTo] = useState<string>("EUR");
-  const [baseCurrency, setBaseCurrency] = useState<number | undefined>();
+  const [baseRate, setBaseRate] = useState<number | undefined>();
   const [rate, setRate] = useState<number | undefined>();
   const [currencies, setCurrencies] = useState<any>();
   const [buttonClicked, setButtonClicked] = useState<boolean>(false);
@@ -46,7 +46,7 @@ export default function Home() {
     const response = await ExchangeRate.find(from, to);
 
     if (response?.data) {
-      setBaseCurrency(response?.data[from]);
+      setBaseRate(response?.data[from]);
       setRate(response?.data[to]);
     }
     setIsFetching(false);
@@ -151,7 +151,7 @@ export default function Home() {
         </div>
         <div className="row mt-3 mt-md-5">
           <div className="col-12 col-md-8">
-            {baseCurrency && rate && (
+            {baseRate && rate && (
               <div className="d-flex flex-column ">
                 <p className="fs-4 fw-bold opacity-50">
                   {amount} {currencies[from].name} =
@@ -165,8 +165,7 @@ export default function Home() {
                 </p>
                 <p className="fs-5 fw-regular">
                   1 {currencies[to].code} ={" "}
-                  {reverseExchangeRate(baseCurrency, rate)}{" "}
-                  {currencies[from].code}
+                  {reverseExchangeRate(baseRate, rate)} {currencies[from].code}
                 </p>
               </div>
             )}
