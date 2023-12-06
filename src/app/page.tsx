@@ -3,7 +3,6 @@ import React, { ChangeEvent } from "react";
 import { useEffect, useState } from "react";
 import { Currencies } from "@/services/api/Currencies";
 import { ExchangeRate } from "@/services/api/ExchangeRate";
-import Skeleton from "react-loading-skeleton";
 import CurrencySelect from "@/components/CurrencySelect";
 import Button from "@/components/Button";
 
@@ -111,16 +110,12 @@ export default function Home() {
             <label htmlFor="from" className="form-label fw-bold fs-4">
               De:
             </label>
-            {currencies ? (
-              <CurrencySelect
-                currencies={currencies}
-                id={"from"}
-                value={from}
-                handlerOnChange={handlerOnChange}
-              />
-            ) : (
-              <Skeleton className="form-control" height={65} />
-            )}
+            <CurrencySelect
+              currencies={currencies}
+              id={"from"}
+              value={from}
+              handlerOnChange={handlerOnChange}
+            />
           </div>
           <div className="col-12 col-12 col-md-1 margin-auto d-flex flex-row justify-content-center align-items-start p-0">
             <button
@@ -137,16 +132,12 @@ export default function Home() {
             <label htmlFor="to" className="form-label fw-bold fs-4">
               a:
             </label>
-            {currencies ? (
-              <CurrencySelect
-                currencies={currencies}
-                id={"to"}
-                value={to}
-                handlerOnChange={handlerOnChange}
-              />
-            ) : (
-              <Skeleton className="form-control" height={65} />
-            )}
+            <CurrencySelect
+              currencies={currencies}
+              id={"to"}
+              value={to}
+              handlerOnChange={handlerOnChange}
+            />
           </div>
         </div>
         <div className="row mt-3 mt-md-5">
