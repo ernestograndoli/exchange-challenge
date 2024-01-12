@@ -1,4 +1,4 @@
-import { IResponse } from "./IResponse";
+import { IError, IResponse } from "./IResponse";
 
 interface FetchParams {
   url: string;
@@ -27,7 +27,7 @@ export class FetchService {
         const data = await res.json();
         return { status: res.status, data: data?.data };
       } else {
-        const error: IResponse<any> = await res.json();
+        const error: IResponse<IError> = await res.json();
         return { status: res.status, error: error.error };
       }
     } catch (err: any) {

@@ -1,4 +1,4 @@
-interface IError {
+export interface IError {
   message: string;
   errors: [key: string[]];
 }
